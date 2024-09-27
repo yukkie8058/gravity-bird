@@ -1,0 +1,9 @@
+# Godot 4+ specific ignores
+.godot/
+
+# gd-plug specific ignores
+.plugged/
+addons/*
+!addons/gd-plug/
+
+export/

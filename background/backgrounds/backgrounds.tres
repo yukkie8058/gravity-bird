@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ResourceGroup" load_steps=2 format=3 uid="uid://dsgef5fg5q5ej"]
+
+[ext_resource type="Script" path="res://addons/godot_resource_groups/resource_group.gd" id="1_joh8i"]
+
+[resource]
+script = ExtResource("1_joh8i")
+base_folder = "res://background/backgrounds"
+includes = Array[String](["**.png"])
+excludes = Array[String]([])
+paths = Array[String](["res://background/backgrounds/set1_background.png", "res://background/backgrounds/set2_background.png", "res://background/backgrounds/set3_background.png", "res://background/backgrounds/set4_background.png"])

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ResourceGroup" load_steps=2 format=3 uid="uid://bvuhnonga5k2c"]
+
+[ext_resource type="Script" path="res://addons/godot_resource_groups/resource_group.gd" id="1_e03l6"]
+
+[resource]
+script = ExtResource("1_e03l6")
+base_folder = "res://background/foregrounds"
+includes = Array[String](["**.png"])
+excludes = Array[String]([])
+paths = Array[String](["res://background/foregrounds/set1_hills.png", "res://background/foregrounds/set1_tiles.png", "res://background/foregrounds/set2_hills.png", "res://background/foregrounds/set2_tiles.png", "res://background/foregrounds/set3_hills.png", "res://background/foregrounds/set3_tiles.png", "res://background/foregrounds/set4_hills.png", "res://background/foregrounds/set4_tiles.png"])

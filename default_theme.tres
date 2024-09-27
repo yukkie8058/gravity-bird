@@ -1,0 +1,34 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://d4jsi8acvl13s"]
+
+[ext_resource type="Texture2D" uid="uid://bcy836ajawa0g" path="res://ui/button_square_depth_flat.png" id="1_qcb83"]
+[ext_resource type="Texture2D" uid="uid://c3oqaf5y3n3h8" path="res://ui/button_square_flat.png" id="2_plf3n"]
+[ext_resource type="FontFile" uid="uid://ffcmsvxxhlmq" path="res://ui/Kenney Future Square.ttf" id="3_ragse"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m28kr"]
+texture = ExtResource("1_qcb83")
+texture_margin_left = 12.0
+texture_margin_top = 11.0
+texture_margin_right = 12.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5h50w"]
+texture = ExtResource("1_qcb83")
+texture_margin_left = 12.0
+texture_margin_top = 11.0
+texture_margin_right = 12.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_437sy"]
+texture = ExtResource("2_plf3n")
+texture_margin_left = 12.0
+texture_margin_top = 10.0
+texture_margin_right = 12.0
+texture_margin_bottom = 10.0
+
+[resource]
+default_font = ExtResource("3_ragse")
+Button/constants/icon_max_width = 21
+Button/font_sizes/font_size = 18
+Button/styles/hover = SubResource("StyleBoxTexture_m28kr")
+Button/styles/normal = SubResource("StyleBoxTexture_5h50w")
+Button/styles/pressed = SubResource("StyleBoxTexture_437sy")
