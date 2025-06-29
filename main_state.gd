@@ -14,4 +14,3 @@ func _init() -> void:
 
 # github.com/godotengine/godot/issues/83549を誰か早く直してくれ...
 func send_event(event: StringName) -> void: super(event)
-
