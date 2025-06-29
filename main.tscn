@@ -311,6 +311,7 @@ https://godotplayer.com/games/gravity-bird"
 
 [connection signal="state_entered" from="MainState/Root/Idle" to="." method="_idle_state_entered"]
 [connection signal="state_entered" from="MainState/Root/Idle" to="ParallaxBackground" method="_idle_state_entered"]
+[connection signal="state_entered" from="MainState/Root/Idle" to="Pipes" method="_idle_state_entered"]
 [connection signal="state_entered" from="MainState/Root/Idle" to="Bird" method="_idle_state_entered"]
 [connection signal="state_unhandled_input" from="MainState/Root/Idle" to="Bird" method="_game_or_idle_state_unhandled_input"]
 [connection signal="state_entered" from="MainState/Root/Game" to="Pipes" method="_game_state_entered"]
