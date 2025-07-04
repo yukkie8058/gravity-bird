@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://bch7jaxt5to04"]
+[gd_scene load_steps=51 format=3 uid="uid://bch7jaxt5to04"]
 
 [ext_resource type="Script" uid="uid://c81jj8rrs7ku8" path="res://main.gd" id="1_2li3r"]
 [ext_resource type="Texture2D" uid="uid://6ga5dibsws2h" path="res://background/backgrounds/set1_background.png" id="1_7q5h0"]
@@ -41,6 +41,7 @@
 [ext_resource type="AudioStream" uid="uid://4uw1psh41rvt" path="res://bird/audio/game_over/game_over_1.ogg" id="33_4lmeg"]
 [ext_resource type="Resource" uid="uid://j0wvc6pni736" path="res://bird/audio/game_over/game_over.tres" id="33_come4"]
 [ext_resource type="AudioStream" uid="uid://cmjlofy3j6dxg" path="res://bird/audio/game_over/game_over_2.ogg" id="34_0cp0l"]
+[ext_resource type="AudioStream" uid="uid://cryp8sxlgnyyq" path="res://ui/button/pressed.ogg" id="37_0cp0l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ce2ut"]
 radius = 18.0
@@ -212,6 +213,9 @@ _bird = NodePath("../Bird")
 
 [node name="UIs" type="CanvasLayer" parent="Camera"]
 
+[node name="AudioButtonPressed" type="AudioStreamPlayer" parent="Camera/UIs"]
+stream = ExtResource("37_0cp0l")
+
 [node name="Idle" type="Control" parent="Camera/UIs" node_paths=PackedStringArray("_instruction")]
 layout_mode = 3
 anchors_preset = 15
@@ -361,4 +365,6 @@ https://godotplayer.com/games/gravity-bird"
 [connection signal="state_processing" from="MainState/Root/Game" to="Bird" method="_game_state_processing"]
 [connection signal="state_unhandled_input" from="MainState/Root/Game" to="Bird" method="_game_or_idle_state_unhandled_input"]
 [connection signal="timeout" from="Camera/UIs/Idle/Instruction/Timer" to="Camera/UIs/Idle" method="_instruction_timer_timeout"]
+[connection signal="pressed" from="Camera/UIs/GameOver/Restart" to="Camera/UIs/AudioButtonPressed" method="play"]
 [connection signal="pressed" from="Camera/UIs/GameOver/Restart" to="Camera/UIs/GameOver" method="_restart_pressed"]
+[connection signal="pressed" from="Camera/UIs/GameOver/Tweet" to="Camera/UIs/AudioButtonPressed" method="play"]
