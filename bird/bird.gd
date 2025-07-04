@@ -22,11 +22,16 @@ var dead: bool:
 		_sprite_dead.visible = dead
 
 @export var _speed: float = 100
+
 @export_group("Component")
 @export var _pipe_manager: PipeManager
 @export var _visible_on_screen_notifier: VisibleOnScreenNotifier2D
+@export_subgroup("Sprite")
 @export var _sprite_normal: Sprite2D
 @export var _sprite_dead: Sprite2D
+@export_subgroup("Audio")
+@export var _audio_score_up: AudioStreamPlayer
+@export var _audio_game_over: AudioStreamPlayer
 
 var _next_pipe: Pipe
 
@@ -46,6 +51,7 @@ func _idle_state_entered() -> void:
 func _game_state_processing(_delta: float) -> void:
 	if _next_pipe != null and global_position.x > _next_pipe.global_position.x:
 		Main.node().score += 1
+		_audio_score_up.play()
 		_update_next_pipe()
 
 func _game_or_idle_state_unhandled_input(event: InputEvent) -> void:
@@ -66,6 +72,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 func _body_entered(body: Node) -> void:
 	if body is Pipe:
 		set_deferred("freeze", true)
+		_audio_game_over.play()
 		await get_tree().create_timer(0.5).timeout
 		
 		dead = true

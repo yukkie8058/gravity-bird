@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcy836ajawa0g"
-path="res://.godot/imported/button_square_depth_flat.png-72afd4e41cc0033f79847a6b822dc1a1.ctex"
+uid="uid://c3oqaf5y3n3h8"
+path="res://.godot/imported/stylebox_depth.png-4abbce86ba9eeb9e573370558e287b09.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/button_square_depth_flat.png"
-dest_files=["res://.godot/imported/button_square_depth_flat.png-72afd4e41cc0033f79847a6b822dc1a1.ctex"]
+source_file="res://ui/button/stylebox_depth.png"
+dest_files=["res://.godot/imported/stylebox_depth.png-4abbce86ba9eeb9e573370558e287b09.ctex"]
 
 [params]
 

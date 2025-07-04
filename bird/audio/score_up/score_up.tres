@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ResourceGroup" load_steps=2 format=3 uid="uid://yr3q4i40kwqs"]
+
+[ext_resource type="Script" uid="uid://deymmmm40u2sj" path="res://addons/godot_resource_groups/resource_group.gd" id="1_0grku"]
+
+[resource]
+script = ExtResource("1_0grku")
+base_folder = "res://bird/audio/score_up"
+includes = Array[String](["score_up_*.ogg"])
+excludes = Array[String]([])
+paths = Array[String](["res://bird/audio/score_up/score_up_1.ogg", "res://bird/audio/score_up/score_up_2.ogg", "res://bird/audio/score_up/score_up_3.ogg", "res://bird/audio/score_up/score_up_4.ogg", "res://bird/audio/score_up/score_up_5.ogg", "res://bird/audio/score_up/score_up_6.ogg", "res://bird/audio/score_up/score_up_7.ogg"])
+metadata/_custom_type_script = "uid://deymmmm40u2sj"
