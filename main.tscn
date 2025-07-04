@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bch7jaxt5to04"]
+[gd_scene load_steps=50 format=3 uid="uid://bch7jaxt5to04"]
 
 [ext_resource type="Script" uid="uid://c81jj8rrs7ku8" path="res://main.gd" id="1_2li3r"]
 [ext_resource type="Texture2D" uid="uid://6ga5dibsws2h" path="res://background/backgrounds/set1_background.png" id="1_7q5h0"]
@@ -29,9 +29,42 @@
 [ext_resource type="Texture2D" uid="uid://d1oqgc2p5ildk" path="res://pipes/tile_yellow_middle.png" id="20_q3mon"]
 [ext_resource type="Texture2D" uid="uid://ciw785x36aiqw" path="res://ui/twitter_logo.png" id="22_gs7hx"]
 [ext_resource type="Script" uid="uid://dwxaeqemqc3x5" path="res://utils/tweet_button.gd" id="22_t3afh"]
+[ext_resource type="Script" uid="uid://bqy4ctsahouot" path="res://utils/audio_stream_group_randmizer.gd" id="24_b1qrp"]
+[ext_resource type="AudioStream" uid="uid://drm0t3uccb0tc" path="res://bird/audio/score_up/score_up_1.ogg" id="25_come4"]
+[ext_resource type="AudioStream" uid="uid://d4loghl73ttv3" path="res://bird/audio/score_up/score_up_2.ogg" id="26_h8e4i"]
+[ext_resource type="AudioStream" uid="uid://b5vpv6lni1poj" path="res://bird/audio/score_up/score_up_3.ogg" id="27_4lmeg"]
+[ext_resource type="AudioStream" uid="uid://dt4kbeeggonjn" path="res://bird/audio/score_up/score_up_4.ogg" id="28_0cp0l"]
+[ext_resource type="AudioStream" uid="uid://byyx33ofcv5x7" path="res://bird/audio/score_up/score_up_5.ogg" id="29_d2t1y"]
+[ext_resource type="AudioStream" uid="uid://b3utdry7m8p6" path="res://bird/audio/score_up/score_up_6.ogg" id="30_gngh3"]
+[ext_resource type="AudioStream" uid="uid://d3lcpprx4vw54" path="res://bird/audio/score_up/score_up_7.ogg" id="31_0n3wm"]
+[ext_resource type="Resource" uid="uid://yr3q4i40kwqs" path="res://bird/audio/score_up/score_up.tres" id="32_qnost"]
+[ext_resource type="AudioStream" uid="uid://4uw1psh41rvt" path="res://bird/audio/game_over/game_over_1.ogg" id="33_4lmeg"]
+[ext_resource type="Resource" uid="uid://j0wvc6pni736" path="res://bird/audio/game_over/game_over.tres" id="33_come4"]
+[ext_resource type="AudioStream" uid="uid://cmjlofy3j6dxg" path="res://bird/audio/game_over/game_over_2.ogg" id="34_0cp0l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ce2ut"]
 radius = 18.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_b1qrp"]
+streams_count = 7
+stream_0/stream = ExtResource("25_come4")
+stream_1/stream = ExtResource("26_h8e4i")
+stream_2/stream = ExtResource("27_4lmeg")
+stream_3/stream = ExtResource("28_0cp0l")
+stream_4/stream = ExtResource("29_d2t1y")
+stream_5/stream = ExtResource("30_gngh3")
+stream_6/stream = ExtResource("31_0n3wm")
+script = ExtResource("24_b1qrp")
+stream_group = ExtResource("32_qnost")
+metadata/_custom_type_script = "uid://bqy4ctsahouot"
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_come4"]
+streams_count = 2
+stream_0/stream = ExtResource("33_4lmeg")
+stream_1/stream = ExtResource("34_0cp0l")
+script = ExtResource("24_b1qrp")
+stream_group = ExtResource("33_come4")
+metadata/_custom_type_script = "uid://bqy4ctsahouot"
 
 [sub_resource type="LabelSettings" id="LabelSettings_f2387"]
 font_size = 40
@@ -132,7 +165,7 @@ ExtResource("17_wgm7g"): ExtResource("18_ntc2s"),
 ExtResource("19_xlohi"): ExtResource("20_q3mon")
 }
 
-[node name="Bird" type="RigidBody2D" parent="." node_paths=PackedStringArray("_pipe_manager", "_visible_on_screen_notifier", "_sprite_normal", "_sprite_dead")]
+[node name="Bird" type="RigidBody2D" parent="." node_paths=PackedStringArray("_pipe_manager", "_visible_on_screen_notifier", "_sprite_normal", "_sprite_dead", "_audio_score_up", "_audio_game_over")]
 can_sleep = false
 lock_rotation = true
 contact_monitor = true
@@ -142,6 +175,8 @@ _pipe_manager = NodePath("../Pipes")
 _visible_on_screen_notifier = NodePath("VisibleOnScreenNotifier")
 _sprite_normal = NodePath("SpriteNormal")
 _sprite_dead = NodePath("SpriteDead")
+_audio_score_up = NodePath("AudioScoreUp")
+_audio_game_over = NodePath("AudioGameOver")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Bird"]
@@ -161,6 +196,13 @@ rotation = -1.5708
 texture = ExtResource("2_wg0kq")
 offset = Vector2(-0.5, -0.5)
 flip_v = true
+
+[node name="AudioScoreUp" type="AudioStreamPlayer" parent="Bird"]
+stream = SubResource("AudioStreamRandomizer_b1qrp")
+
+[node name="AudioGameOver" type="AudioStreamPlayer" parent="Bird"]
+stream = SubResource("AudioStreamRandomizer_come4")
+volume_db = -5.0
 
 [node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("_bird")]
 offset = Vector2(50, 2.08165e-12)
