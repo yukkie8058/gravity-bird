@@ -254,7 +254,7 @@ OR
 CLICK ANYWHERE"
 label_settings = SubResource("LabelSettings_0cfms")
 horizontal_alignment = 1
-vertical_alignment = 2
+vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="Camera/UIs/Idle/Instruction"]
 autostart = true
