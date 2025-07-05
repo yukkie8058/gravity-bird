@@ -1,4 +1,4 @@
-extends Control
+extends MarginContainer
 
 @export_group("Component")
 @export var _score: Label
@@ -16,4 +16,3 @@ func _main_score_changed() -> void:
 
 func _restart_pressed() -> void:
 	MainState.chart().send_event("game_restart")
-
