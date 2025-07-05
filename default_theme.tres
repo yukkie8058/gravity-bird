@@ -32,3 +32,7 @@ Button/font_sizes/font_size = 18
 Button/styles/hover = SubResource("StyleBoxTexture_m28kr")
 Button/styles/normal = SubResource("StyleBoxTexture_5h50w")
 Button/styles/pressed = SubResource("StyleBoxTexture_437sy")
+HeaderLarge/constants/outline_size = 7
+HeaderLarge/font_sizes/font_size = 40
+HeaderMedium/font_sizes/font_size = 35
+Label/constants/outline_size = 5
