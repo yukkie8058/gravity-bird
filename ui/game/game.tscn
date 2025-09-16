@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://b58mq1famu4tq"]
+
+[ext_resource type="Script" uid="uid://b2enoojeatt4l" path="res://ui/game/game.gd" id="1_h517a"]
+
+[node name="Game" type="MarginContainer" node_paths=PackedStringArray("_score")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h517a")
+_score = NodePath("Score")
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_type_variation = &"HeaderMedium"
+text = "1200"
