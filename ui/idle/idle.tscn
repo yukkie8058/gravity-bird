@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4c3gnrpoqee"]
+
+[ext_resource type="Script" uid="uid://doph4syk5rtqq" path="res://ui/idle/idle.gd" id="1_a0mke"]
+
+[node name="Idle" type="MarginContainer" node_paths=PackedStringArray("_instruction")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a0mke")
+_instruction = NodePath("VBox/Instruction/Label")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_type_variation = &"HeaderLarge"
+text = "GRAVITY
+BIRD"
+horizontal_alignment = 1
+
+[node name="Instruction" type="Control" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Label" type="Label" parent="VBox/Instruction"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -75.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 20
+text = "PRESS SPACE
+OR
+CLICK ANYWHERE"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="VBox/Instruction/Label"]
+autostart = true
+
+[connection signal="timeout" from="VBox/Instruction/Label/Timer" to="." method="_instruction_timer_timeout"]

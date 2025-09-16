@@ -1,4 +1,4 @@
-extends Control
+extends MarginContainer
 
 @export_group("Component")
 @export var _instruction: Label

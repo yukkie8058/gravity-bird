@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://ww7u3a8kk3co"]
+
+[ext_resource type="Script" uid="uid://ss533bbqtiyk" path="res://ui/game_over/game_over.gd" id="1_j1fe5"]
+[ext_resource type="Texture2D" uid="uid://ciw785x36aiqw" path="res://ui/twitter_logo.png" id="2_xjda6"]
+[ext_resource type="Script" uid="uid://dwxaeqemqc3x5" path="res://utils/tweet_button.gd" id="3_akjlf"]
+
+[node name="GameOver" type="MarginContainer" node_paths=PackedStringArray("_score", "_tweet")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j1fe5")
+_score = NodePath("VBox/Heading/Score")
+_tweet = NodePath("VBox/Buttons/Tweet")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Heading" type="VBoxContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="GameOver" type="Label" parent="VBox/Heading"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 0
+text = "GAME OVER"
+
+[node name="Score" type="Label" parent="VBox/Heading"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"HeaderMedium"
+text = "1200"
+
+[node name="Buttons" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Blank" type="Control" parent="VBox/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Restart" type="Button" parent="VBox/Buttons"]
+layout_mode = 2
+text = "RESTART"
+
+[node name="Tweet" type="Button" parent="VBox/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 2
+icon = ExtResource("2_xjda6")
+script = ExtResource("3_akjlf")
+tweet_text = "Gravity Birdで1200点を獲得！
+https://godotplayer.com/games/gravity-bird"
+
+[connection signal="pressed" from="VBox/Buttons/Restart" to="." method="_restart_pressed"]

@@ -1,8 +1,17 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://d4jsi8acvl13s"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://d4jsi8acvl13s"]
 
 [ext_resource type="Texture2D" uid="uid://bcy836ajawa0g" path="res://ui/button/stylebox.png" id="1_7j863"]
+[ext_resource type="Script" uid="uid://cb6hisoq5dm8b" path="res://utils/theme_ex_value.gd" id="1_cefca"]
 [ext_resource type="Texture2D" uid="uid://c3oqaf5y3n3h8" path="res://ui/button/stylebox_depth.png" id="2_50bnw"]
+[ext_resource type="AudioStream" uid="uid://cryp8sxlgnyyq" path="res://ui/button/pressed.ogg" id="2_ed8xq"]
 [ext_resource type="FontFile" uid="uid://ffcmsvxxhlmq" path="res://ui/Kenney Future Square.ttf" id="3_ragse"]
+
+[sub_resource type="Texture2D" id="Texture2D_cefca"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_cefca")
+value = ExtResource("2_ed8xq")
+metadata/_custom_type_script = "uid://cb6hisoq5dm8b"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m28kr"]
 texture = ExtResource("1_7j863")
@@ -27,8 +36,17 @@ texture_margin_bottom = 10.0
 
 [resource]
 default_font = ExtResource("3_ragse")
-Button/constants/icon_max_width = 21
+Button/constants/icon_max_width = 18
 Button/font_sizes/font_size = 18
+Button/icons/audio_pressed = SubResource("Texture2D_cefca")
 Button/styles/hover = SubResource("StyleBoxTexture_m28kr")
 Button/styles/normal = SubResource("StyleBoxTexture_5h50w")
 Button/styles/pressed = SubResource("StyleBoxTexture_437sy")
+HeaderLarge/constants/outline_size = 7
+HeaderLarge/font_sizes/font_size = 40
+HeaderMedium/font_sizes/font_size = 35
+Label/constants/outline_size = 5
+MarginContainer/constants/margin_bottom = 8
+MarginContainer/constants/margin_left = 8
+MarginContainer/constants/margin_right = 8
+MarginContainer/constants/margin_top = 8

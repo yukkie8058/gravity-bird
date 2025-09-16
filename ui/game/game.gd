@@ -1,4 +1,4 @@
-extends Control
+extends MarginContainer
 
 @export_group("Component")
 @export var _score: Label
@@ -9,4 +9,3 @@ func _enter_tree() -> void:
 
 func _main_score_changed() -> void:
 	_score.text = str(Main.node().score)
-
