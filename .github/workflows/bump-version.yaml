@@ -13,41 +13,51 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-    runs-on: ubuntu-22.04
-    container:
-      image: barichello/godot-ci:4.5
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up Godot
+        run: |
+          readonly VERSION=4.5
+          release_url="https://github.com/godotengine/godot-builds/releases/download/${VERSION}-stable"
+
+          bin_name="Godot_v${VERSION}-stable_linux.x86_64"
+          wget -nv "${release_url}/${bin_name}.zip"
+          unzip "${bin_name}.zip" -d godot
+          mv "godot/${bin_name}" /usr/local/bin/godot
+
       - name: Bump project version
         run: |
-          script=$(mktemp)
+          script=$(mktemp --suffix=.gd)
           printf "@tool extends MainLoop
-          func _initialize():
+          func _initialize() -> void:
           \tProjectSettings.set_setting('application/config/version', '${{ github.event.inputs.version }}')
           \tProjectSettings.save()
-          " > $script
+          func _process(_delta: float) -> bool: return true
+          " > "${script}"
 
-          godot --headless --script $script
-          rm $script
+          godot --headless --script "${script}"
+          rm "${script}"
 
-      - name: Generate Changelog
+      - name: Generate CHANGELOG.md
         id: generate-changelog
         uses: janheinrichmerker/action-github-changelog-generator@v2.4
         with:
           futureRelease: ${{ github.event.inputs.version }}
-      - name: Write CHANGELOG.md
-        run: |
-          printf "${{ steps.generate-changelog.outputs.changelog }}" > CHANGELOG.md
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
-          title: Bump version to ${{ github.event.inputs.version }}
+          title: Bump version to `${{ github.event.inputs.version }}`
           labels: release
           branch: github-actions/bump-version-${{ github.event.inputs.version }}
-          commit-message: Bump version to ${{ github.event.inputs.version }}
+          commit-message: Bump version to `${{ github.event.inputs.version }}`
           body: |
-            Bumped project version to ${{ github.event.inputs.version }} and updated CHANGELOG.md.
+            Bumped project version to `${{ github.event.inputs.version }}` and updated CHANGELOG.md.
+          reviewers: yukkie8058
+          assignees: yukkie8058
+          add-paths: project.godot,CHANGELOG.md
