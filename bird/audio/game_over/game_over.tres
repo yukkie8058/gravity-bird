@@ -6,6 +6,5 @@
 script = ExtResource("1_sf74f")
 base_folder = "res://bird/audio/game_over"
 includes = Array[String](["game_over_*.ogg"])
-excludes = Array[String]([])
 paths = Array[String](["res://bird/audio/game_over/game_over_1.ogg", "res://bird/audio/game_over/game_over_2.ogg"])
 metadata/_custom_type_script = "uid://deymmmm40u2sj"

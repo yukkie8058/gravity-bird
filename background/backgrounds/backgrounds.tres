@@ -6,5 +6,4 @@
 script = ExtResource("1_joh8i")
 base_folder = "res://background/backgrounds"
 includes = Array[String](["**.png"])
-excludes = Array[String]([])
 paths = Array[String](["res://background/backgrounds/set1_background.png", "res://background/backgrounds/set2_background.png", "res://background/backgrounds/set3_background.png", "res://background/backgrounds/set4_background.png"])
