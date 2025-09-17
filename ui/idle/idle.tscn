@@ -2,17 +2,25 @@
 
 [ext_resource type="Script" uid="uid://doph4syk5rtqq" path="res://ui/idle/idle.gd" id="1_a0mke"]
 
-[node name="Idle" type="MarginContainer" node_paths=PackedStringArray("_instruction")]
+[node name="Idle" type="MarginContainer" node_paths=PackedStringArray("_version", "_instruction")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_a0mke")
+_version = NodePath("VBox/Version")
 _instruction = NodePath("VBox/Instruction/Label")
 
 [node name="VBox" type="VBoxContainer" parent="."]
 layout_mode = 2
+
+[node name="Version" type="LinkButton" parent="VBox"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "VER. x.x.x"
+underline = 1
+uri = "https://github.com/yukkie8058/gravity-bird/blob/main/CHANGELOG.md"
 
 [node name="Title" type="Label" parent="VBox"]
 layout_mode = 2
@@ -23,8 +31,9 @@ BIRD"
 horizontal_alignment = 1
 
 [node name="Instruction" type="Control" parent="VBox"]
+editor_description = "子のLabelが非表示になる時にこのノードがレイアウトを保持する。"
 layout_mode = 2
-size_flags_vertical = 10
+size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="VBox/Instruction"]
 layout_mode = 1

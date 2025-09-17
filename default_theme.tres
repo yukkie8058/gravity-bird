@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cryp8sxlgnyyq" path="res://ui/button/pressed.ogg" id="2_ed8xq"]
 [ext_resource type="FontFile" uid="uid://ffcmsvxxhlmq" path="res://ui/Kenney Future Square.ttf" id="3_ragse"]
 
-[sub_resource type="Texture2D" id="Texture2D_cefca"]
+[sub_resource type="Texture2D" id="Texture2D_ed8xq"]
 resource_local_to_scene = false
 resource_name = ""
 script = ExtResource("1_cefca")
@@ -36,9 +36,9 @@ texture_margin_bottom = 10.0
 
 [resource]
 default_font = ExtResource("3_ragse")
+BaseButton/icons/audio_pressed = SubResource("Texture2D_ed8xq")
 Button/constants/icon_max_width = 18
 Button/font_sizes/font_size = 18
-Button/icons/audio_pressed = SubResource("Texture2D_cefca")
 Button/styles/hover = SubResource("StyleBoxTexture_m28kr")
 Button/styles/normal = SubResource("StyleBoxTexture_5h50w")
 Button/styles/pressed = SubResource("StyleBoxTexture_437sy")
