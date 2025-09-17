@@ -1,21 +1,21 @@
-# Changelog
+# 更新履歴
 
 ## [0.2](https://github.com/yukkie8058/gravity-bird/tree/0.2) (2025-09-17)
 
 [Full Changelog](https://github.com/yukkie8058/gravity-bird/compare/0.1...0.2)
 
-機能追加/変更
+**機能追加/変更**
 
 - アイコンがダサい [\#7](https://github.com/yukkie8058/gravity-bird/issues/7)
 - メニュー画面で、モバイル端末では"PRESS SPACE OR ..."を表示しないように [\#4](https://github.com/yukkie8058/gravity-bird/issues/4)
 - 効果音をつける [\#2](https://github.com/yukkie8058/gravity-bird/issues/2)
 - バージョン番号をつけ、変更履歴を整備する [\#1](https://github.com/yukkie8058/gravity-bird/issues/1)
 
-バグ修正
+**バグ修正**
 
 - ゲームオーバー後のメニュー画面で鳥がパイプに衝突して詰む [\#3](https://github.com/yukkie8058/gravity-bird/issues/3)
 
-その他
+**その他**
 
 - Godotを4.5に更新する [\#8](https://github.com/yukkie8058/gravity-bird/issues/8)
 
