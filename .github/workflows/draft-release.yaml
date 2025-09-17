@@ -1,0 +1,37 @@
+name: Draft Release
+on:
+  pull_request:
+    branches: [main]
+    types: [closed]
+
+jobs:
+  release:
+    name: Create Draft Release
+    if: github.event.pull_request.merged == true && contains(github.event.pull_request.labels.*.name, 'release')
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Collect Reference Info
+        id: ref_info
+        run: |
+          echo "current=$(git describe --abbrev=0)" >> $GITHUB_OUTPUT
+          echo "version=${${{ github.event.pull_request.head.ref }}##*-}" >> $GITHUB_OUTPUT
+
+      - name: Generate Changelog
+        id: generate-changelog
+        uses: janheinrichmerker/action-github-changelog-generator@v2.4
+        with:
+          sinceTag: ${{ steps.ref_info.outputs.current }}
+          futureRelease: ${{ steps.ref_info.outputs.version }}
+
+      - name: Create Draft Release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          tag_name: ${{ steps.ref_info.outputs.version }}
+          body: ${{ steps.generate-changelog.outputs.changelog }}
