@@ -34,17 +34,17 @@ gdscript/warnings/unsafe_void_return=2
 gdscript/warnings/static_called_on_instance=2
 gdscript/warnings/redundant_static_unload=2
 gdscript/warnings/redundant_await=2
+gdscript/warnings/integer_division=0
 gdscript/warnings/narrowing_conversion=2
 gdscript/warnings/int_as_enum_without_cast=2
 gdscript/warnings/int_as_enum_without_match=2
+gdscript/warnings/enum_variable_without_default=2
 gdscript/warnings/deprecated_keyword=2
 gdscript/warnings/confusable_identifier=2
 gdscript/warnings/confusable_local_declaration=2
 gdscript/warnings/confusable_local_usage=2
+gdscript/warnings/confusable_capture_reassignment=2
 gdscript/warnings/inference_on_variant=0
-gdscript/warnings/property_used_as_function=2
-gdscript/warnings/constant_used_as_function=2
-gdscript/warnings/function_used_as_property=2
 
 [display]
 
@@ -55,6 +55,11 @@ window/stretch/mode="canvas_items"
 [dotnet]
 
 project/assembly_name="gravity-bird"
+
+[editor]
+
+naming/default_signal_callback_name="_{node_name}_{signal_name}"
+naming/default_signal_callback_to_self_name="_{signal_name}"
 
 [editor_plugins]
 

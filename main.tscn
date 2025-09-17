@@ -24,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://cgqo41wa0vuin" path="res://pipes/tile_green_middle.png" id="18_ntc2s"]
 [ext_resource type="Texture2D" uid="uid://dxigrr31l61xj" path="res://pipes/tile_yellow_top.png" id="19_xlohi"]
 [ext_resource type="Texture2D" uid="uid://d1oqgc2p5ildk" path="res://pipes/tile_yellow_middle.png" id="20_q3mon"]
-[ext_resource type="Script" uid="uid://bqy4ctsahouot" path="res://utils/audio_stream_group_randmizer.gd" id="24_b1qrp"]
+[ext_resource type="Script" uid="uid://bqy4ctsahouot" path="res://utils/audio_stream_group_randomizer.gd" id="24_b1qrp"]
 [ext_resource type="AudioStream" uid="uid://drm0t3uccb0tc" path="res://bird/audio/score_up/score_up_1.ogg" id="25_come4"]
 [ext_resource type="AudioStream" uid="uid://d4loghl73ttv3" path="res://bird/audio/score_up/score_up_2.ogg" id="26_h8e4i"]
 [ext_resource type="AudioStream" uid="uid://b5vpv6lni1poj" path="res://bird/audio/score_up/score_up_3.ogg" id="27_4lmeg"]

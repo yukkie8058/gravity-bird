@@ -1,4 +1,3 @@
-@tool
 extends AudioStreamPlayer
 
 var _pressed_callables: Dictionary[BaseButton, Callable]

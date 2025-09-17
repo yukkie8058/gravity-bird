@@ -4,4 +4,4 @@ extends Camera2D
 @export var _bird: Bird
 
 func _process(_delta: float) -> void:
-	global_position = Vector2(_bird.global_position.x, 0)
+	global_position.x = _bird.global_position.x

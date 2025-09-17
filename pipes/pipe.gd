@@ -58,4 +58,3 @@ func _get_viewport_size() -> Vector2:
 		ProjectSettings.get_setting("display/window/size/viewport_width"),
 		ProjectSettings.get_setting("display/window/size/viewport_height")
 	) if Engine.is_editor_hint() else get_viewport_rect().size
-

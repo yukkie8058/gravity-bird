@@ -63,7 +63,7 @@ func _game_or_idle_state_unhandled_input(event: InputEvent) -> void:
 			gravity_direction = -gravity_direction as GravityDirection
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
-	state.linear_velocity = Vector2(_speed, state.linear_velocity.y)
+	state.linear_velocity.x = _speed
 	match gravity_direction:
 		GravityDirection.NONE: rotation = 0
 		GravityDirection.UP: rotation = -(TAU / 8 * 1)

@@ -1,6 +1,7 @@
 @tool
 class_name ThemeExValue
 extends Texture2D
+## Allows storing any type of Resource in a Theme.
 
 @export_custom(PROPERTY_HINT_NONE, "", PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_ALWAYS_DUPLICATE)
 var value: Resource:
