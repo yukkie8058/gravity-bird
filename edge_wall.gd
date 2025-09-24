@@ -20,6 +20,9 @@ func _enter_tree() -> void:
 	get_viewport().size_changed.connect(_viewport_size_changed)
 	_viewport_size_changed()
 
+func _exit_tree() -> void:
+	get_viewport().size_changed.disconnect(_viewport_size_changed)
+
 func _viewport_size_changed() -> void:
 	_shape_top.distance = -get_viewport_rect().size.y / 2
 	_shape_bottom.distance = -get_viewport_rect().size.y / 2
