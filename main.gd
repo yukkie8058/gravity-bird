@@ -16,3 +16,8 @@ func _init() -> void:
 
 func _idle_state_entered() -> void:
 	score = 0
+
+func _game_over_state_entered() -> void:
+	var save := Save.get_singleton()
+	if score > save.high_score:
+		save.high_score = score
