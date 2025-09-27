@@ -147,7 +147,7 @@ ExtResource("19_xlohi"): ExtResource("20_q3mon")
 can_sleep = false
 lock_rotation = true
 contact_monitor = true
-max_contacts_reported = 1
+max_contacts_reported = 2
 script = ExtResource("3_7bjua")
 _pipe_manager = NodePath("../Pipes")
 _visible_on_screen_notifier = NodePath("VisibleOnScreenNotifier")
