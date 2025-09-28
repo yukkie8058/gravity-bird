@@ -1,0 +1,24 @@
+name: On Released
+on:
+  release:
+    types: [released]
+
+env:
+  GITHUB_TOKEN: ${{ github.token }}
+
+jobs:
+  close-milestone:
+    name: "Close Milestone"
+    timeout-minutes: 2
+
+    steps:
+      - run: |
+          milestone_number=$(gh api -X GET /repos/${GITHUB_REPOSITORY}/milestones --jq '
+            . |
+            map(select(.title == "${{ github.event.release.tag_name }}")) |
+            first |
+            .number
+          ')
+          [[ -z "${milestone_number}" ]] && exit 0
+          gh api -X PATCH "/repos/${GITHUB_REPOSITORY}/milestones/${milestone_number}" -f state=closed
+
