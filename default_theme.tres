@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://d4jsi8acvl13s"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://d4jsi8acvl13s"]
 
 [ext_resource type="Texture2D" uid="uid://bcy836ajawa0g" path="res://ui/button/stylebox.png" id="1_7j863"]
 [ext_resource type="Script" uid="uid://cb6hisoq5dm8b" path="res://utils/theme_ex_value.gd" id="1_cefca"]
@@ -34,6 +34,39 @@ texture_margin_top = 10.0
 texture_margin_right = 12.0
 texture_margin_bottom = 10.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cefca"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.70000005)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ed8xq"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7cj8"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.8)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [resource]
 default_font = ExtResource("3_ragse")
 BaseButton/icons/audio_pressed = SubResource("Texture2D_ed8xq")
@@ -42,6 +75,10 @@ Button/font_sizes/font_size = 18
 Button/styles/hover = SubResource("StyleBoxTexture_m28kr")
 Button/styles/normal = SubResource("StyleBoxTexture_5h50w")
 Button/styles/pressed = SubResource("StyleBoxTexture_437sy")
+FlatButton/constants/icon_max_width = 40
+FlatButton/styles/hover = SubResource("StyleBoxFlat_cefca")
+FlatButton/styles/normal = SubResource("StyleBoxFlat_ed8xq")
+FlatButton/styles/pressed = SubResource("StyleBoxFlat_u7cj8")
 HeaderLarge/constants/outline_size = 7
 HeaderLarge/font_sizes/font_size = 40
 HeaderMedium/font_sizes/font_size = 35

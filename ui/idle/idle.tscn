@@ -1,23 +1,40 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4c3gnrpoqee"]
+[gd_scene load_steps=5 format=3 uid="uid://c4c3gnrpoqee"]
 
 [ext_resource type="Script" uid="uid://doph4syk5rtqq" path="res://ui/idle/idle.gd" id="1_a0mke"]
+[ext_resource type="Texture2D" uid="uid://jk7wsag1g821" path="res://ui/idle/sound_toggle/off.svg" id="2_3mwwa"]
+[ext_resource type="Texture2D" uid="uid://bf7flvshv852u" path="res://ui/idle/sound_toggle/on.svg" id="3_2fs42"]
 
-[node name="Idle" type="MarginContainer" node_paths=PackedStringArray("_version", "_instruction")]
+[sub_resource type="Theme" id="Theme_7itil"]
+SoundToggleOff/base_type = &"FlatButton"
+SoundToggleOff/icons/icon = ExtResource("2_3mwwa")
+SoundToggleOn/base_type = &"FlatButton"
+SoundToggleOn/icons/icon = ExtResource("3_2fs42")
+
+[node name="Idle" type="MarginContainer" node_paths=PackedStringArray("_sound_toggle", "_version", "_instruction")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_a0mke")
-_version = NodePath("VBox/Version")
+_sound_toggle = NodePath("VBox/Heading/SoundToggle")
+_version = NodePath("VBox/Heading/Version")
 _instruction = NodePath("VBox/Instruction/Label")
 
 [node name="VBox" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="Version" type="LinkButton" parent="VBox"]
+[node name="Heading" type="HBoxContainer" parent="VBox"]
 layout_mode = 2
-size_flags_horizontal = 8
+
+[node name="SoundToggle" type="Button" parent="VBox/Heading"]
+layout_mode = 2
+theme = SubResource("Theme_7itil")
+theme_type_variation = &"SoundToggleOn"
+
+[node name="Version" type="LinkButton" parent="VBox/Heading"]
+layout_mode = 2
+size_flags_horizontal = 10
 text = "VER. x.x.x"
 underline = 1
 uri = "https://github.com/yukkie8058/gravity-bird/blob/main/CHANGELOG.md"
@@ -54,4 +71,5 @@ horizontal_alignment = 1
 [node name="Timer" type="Timer" parent="VBox/Instruction/Label"]
 autostart = true
 
+[connection signal="pressed" from="VBox/Heading/SoundToggle" to="." method="_sound_toggle_pressed"]
 [connection signal="timeout" from="VBox/Instruction/Label/Timer" to="." method="_instruction_timer_timeout"]
