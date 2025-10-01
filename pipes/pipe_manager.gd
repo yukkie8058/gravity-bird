@@ -32,11 +32,11 @@ func _game_state_processing(_delta: float) -> void:
 		pipes[-1].index = _index
 		_index += 1
 		pipes[-1].global_position = Vector2(camera_rect.end.x + width / 2, 0)
-		pipes[-1].upper_y = randf_range(
+		pipes[-1].upper_offset = randf_range(
 			-get_viewport_rect().size.y / 2,
 			get_viewport_rect().size.y / 2 - _gap_length,
 		)
-		pipes[-1].lower_y = pipes[-1].upper_y + _gap_length
+		pipes[-1].lower_offset = pipes[-1].upper_offset + _gap_length
 		pipes[-1].texture_top = _texture_pairs.keys()[_next_texture]
 		pipes[-1].texture_middle = _texture_pairs.values()[_next_texture]
 		add_child(pipes[-1])
