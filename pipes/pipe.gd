@@ -37,7 +37,7 @@ func _draw() -> void:
 		Vector2(texture_middle.get_width(), upper_edge_y)
 	), true)
 	
-	var upper_length_y := absf(upper_edge_y - upper_y)
+	var upper_length_y := absf(upper_edge_y - upper_y) + texture_top.get_height()
 	shape_owner_set_transform(_shape_upper_owner, Transform2D(0, Vector2(0, -upper_length_y / 2 + upper_y)))
 	_shape_upper.size = Vector2(texture_top.get_width(), upper_length_y)
 	
@@ -49,7 +49,7 @@ func _draw() -> void:
 		Vector2(texture_middle.get_width(), lower_edge_y)
 	), true)
 	
-	var lower_length_y := absf(lower_edge_y - lower_y)
+	var lower_length_y := absf(lower_edge_y - lower_y) + texture_top.get_height()
 	shape_owner_set_transform(_shape_lower_owner, Transform2D(0, Vector2(0, lower_length_y / 2 + lower_y)))
 	_shape_lower.size = Vector2(texture_top.get_width(), lower_length_y)
 
