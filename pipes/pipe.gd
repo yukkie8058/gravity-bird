@@ -52,6 +52,13 @@ func _draw() -> void:
 	var lower_length_y := absf(lower_edge_y - lower_y) + texture_top.get_height()
 	shape_owner_set_transform(_shape_lower_owner, Transform2D(0, Vector2(0, lower_length_y / 2 + lower_y)))
 	_shape_lower.size = Vector2(texture_top.get_width(), lower_length_y)
+	
+	if get_tree().debug_collisions_hint:
+		var shape_color := ProjectSettings.get_setting("debug/shapes/collision/shape_color")
+		draw_set_transform(shape_owner_get_transform(_shape_upper_owner).origin)
+		_shape_upper.draw(get_canvas_item(), shape_color)
+		draw_set_transform(shape_owner_get_transform(_shape_lower_owner).origin)
+		_shape_lower.draw(get_canvas_item(), Color.RED)
 
 func _get_viewport_size() -> Vector2:
 	return Vector2(
