@@ -1,6 +1,6 @@
 user=yukkie8058
 project=gravity-bird
-exclude-labels=release
+exclude-labels=release,tool
 header-label=# 更新履歴
 enhancement-label=**機能追加/変更**
 bugs-label=**バグ修正**
