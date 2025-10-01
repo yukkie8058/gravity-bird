@@ -1,5 +1,15 @@
 # 更新履歴
 
+## [0.2.1](https://github.com/yukkie8058/gravity-bird/tree/0.2.1) (2025-10-01)
+
+[Full Changelog](https://github.com/yukkie8058/gravity-bird/compare/0.2...0.2.1)
+
+**バグ修正**
+
+- パイプの衝突形状のサイズが短く、すり抜けることがある [\#14](https://github.com/yukkie8058/gravity-bird/issues/14)
+- ERROR: Signal 'size\_changed' is already connected to given callable 'StaticBody2D\(EdgeWall\)::\_viewport\_size\_changed' in that object. [\#6](https://github.com/yukkie8058/gravity-bird/issues/6)
+- 主にPipeの設計を見直し、衝突形状が正しく配置されるように修正 [\#21](https://github.com/yukkie8058/gravity-bird/pull/21) ([yukkie8058](https://github.com/yukkie8058))
+
 ## [0.2](https://github.com/yukkie8058/gravity-bird/tree/0.2) (2025-09-17)
 
 [Full Changelog](https://github.com/yukkie8058/gravity-bird/compare/0.1...0.2)
@@ -9,15 +19,10 @@
 - アイコンがダサい [\#7](https://github.com/yukkie8058/gravity-bird/issues/7)
 - メニュー画面で、モバイル端末では"PRESS SPACE OR ..."を表示しないように [\#4](https://github.com/yukkie8058/gravity-bird/issues/4)
 - 効果音をつける [\#2](https://github.com/yukkie8058/gravity-bird/issues/2)
-- バージョン番号をつけ、変更履歴を整備する [\#1](https://github.com/yukkie8058/gravity-bird/issues/1)
 
 **バグ修正**
 
 - ゲームオーバー後のメニュー画面で鳥がパイプに衝突して詰む [\#3](https://github.com/yukkie8058/gravity-bird/issues/3)
-
-**その他**
-
-- Godotを4.5に更新する [\#8](https://github.com/yukkie8058/gravity-bird/issues/8)
 
 ## [0.1](https://github.com/yukkie8058/gravity-bird/tree/0.1) (2024-10-04)
 
