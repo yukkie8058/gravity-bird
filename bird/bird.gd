@@ -70,7 +70,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 		GravityDirection.DOWN: rotation = TAU / 8 * 1
 
 func _body_entered(body: Node) -> void:
-	if body is Pipe:
+	if body is PipePart:
 		set_deferred("freeze", true)
 		_audio_game_over.play()
 		await get_tree().create_timer(0.5).timeout
