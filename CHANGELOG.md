@@ -1,5 +1,16 @@
 # 更新履歴
 
+## [0.3](https://github.com/yukkie8058/gravity-bird/tree/0.3) (2026-01-05)
+
+[Full Changelog](https://github.com/yukkie8058/gravity-bird/compare/0.2.1...0.3)
+
+**機能追加/変更**
+
+- メインメニューに音の切り替えボタンを追加する [\#16](https://github.com/yukkie8058/gravity-bird/issues/16)
+- ハイスコア時の音と表示を追加 [\#10](https://github.com/yukkie8058/gravity-bird/issues/10)
+- メインメニューに音の切り替えボタンを追加 [\#19](https://github.com/yukkie8058/gravity-bird/pull/19) ([yukkie8058](https://github.com/yukkie8058))
+- ハイスコアの記録と表示機能を追加 [\#17](https://github.com/yukkie8058/gravity-bird/pull/17) ([yukkie8058](https://github.com/yukkie8058))
+
 ## [0.2.1](https://github.com/yukkie8058/gravity-bird/tree/0.2.1) (2025-10-01)
 
 [Full Changelog](https://github.com/yukkie8058/gravity-bird/compare/0.2...0.2.1)
