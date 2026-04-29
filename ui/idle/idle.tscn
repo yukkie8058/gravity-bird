@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4c3gnrpoqee"]
+[gd_scene format=3 uid="uid://c4c3gnrpoqee"]
 
 [ext_resource type="Script" uid="uid://doph4syk5rtqq" path="res://ui/idle/idle.gd" id="1_a0mke"]
 [ext_resource type="Texture2D" uid="uid://jk7wsag1g821" path="res://ui/idle/sound_toggle/off.svg" id="2_3mwwa"]
@@ -10,7 +10,7 @@ SoundToggleOff/icons/icon = ExtResource("2_3mwwa")
 SoundToggleOn/base_type = &"FlatButton"
 SoundToggleOn/icons/icon = ExtResource("3_2fs42")
 
-[node name="Idle" type="MarginContainer" node_paths=PackedStringArray("_sound_toggle", "_version", "_instruction")]
+[node name="Idle" type="MarginContainer" unique_id=1083647321 node_paths=PackedStringArray("_sound_toggle", "_version", "_instruction")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -21,25 +21,25 @@ _sound_toggle = NodePath("VBox/Heading/SoundToggle")
 _version = NodePath("VBox/Heading/Version")
 _instruction = NodePath("VBox/Instruction/Label")
 
-[node name="VBox" type="VBoxContainer" parent="."]
+[node name="VBox" type="VBoxContainer" parent="." unique_id=938235443]
 layout_mode = 2
 
-[node name="Heading" type="HBoxContainer" parent="VBox"]
+[node name="Heading" type="HBoxContainer" parent="VBox" unique_id=912676900]
 layout_mode = 2
 
-[node name="SoundToggle" type="Button" parent="VBox/Heading"]
+[node name="SoundToggle" type="Button" parent="VBox/Heading" unique_id=1727622364]
 layout_mode = 2
 theme = SubResource("Theme_7itil")
 theme_type_variation = &"SoundToggleOn"
 
-[node name="Version" type="LinkButton" parent="VBox/Heading"]
+[node name="Version" type="LinkButton" parent="VBox/Heading" unique_id=1160118191]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "VER. x.x.x"
 underline = 1
 uri = "https://github.com/yukkie8058/gravity-bird/blob/main/CHANGELOG.md"
 
-[node name="Title" type="Label" parent="VBox"]
+[node name="Title" type="Label" parent="VBox" unique_id=2043068188]
 layout_mode = 2
 size_flags_vertical = 6
 theme_type_variation = &"HeaderLarge"
@@ -47,12 +47,12 @@ text = "GRAVITY
 BIRD"
 horizontal_alignment = 1
 
-[node name="Instruction" type="Control" parent="VBox"]
+[node name="Instruction" type="Control" parent="VBox" unique_id=1293163416]
 editor_description = "子のLabelが非表示になる時にこのノードがレイアウトを保持する。"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="VBox/Instruction"]
+[node name="Label" type="Label" parent="VBox/Instruction" unique_id=185617511]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -68,7 +68,7 @@ OR
 CLICK ANYWHERE"
 horizontal_alignment = 1
 
-[node name="Timer" type="Timer" parent="VBox/Instruction/Label"]
+[node name="Timer" type="Timer" parent="VBox/Instruction/Label" unique_id=1286304256]
 autostart = true
 
 [connection signal="pressed" from="VBox/Heading/SoundToggle" to="." method="_sound_toggle_pressed"]

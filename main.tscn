@@ -1,18 +1,18 @@
-[gd_scene load_steps=45 format=3 uid="uid://bch7jaxt5to04"]
+[gd_scene format=3 uid="uid://bch7jaxt5to04"]
 
 [ext_resource type="Script" uid="uid://c81jj8rrs7ku8" path="res://main.gd" id="1_2li3r"]
 [ext_resource type="Texture2D" uid="uid://6ga5dibsws2h" path="res://background/backgrounds/set1_background.png" id="1_7q5h0"]
 [ext_resource type="Script" uid="uid://doqdl0ptvtk07" path="res://main_state.gd" id="1_wc4pt"]
 [ext_resource type="Texture2D" uid="uid://dp48y8rhkbtli" path="res://bird/fall.png" id="1_yc6s5"]
 [ext_resource type="Texture2D" uid="uid://dr4cejoe10g5n" path="res://background/foregrounds/set2_hills.png" id="2_pj211"]
-[ext_resource type="Script" uid="uid://cbmcf1ck46qrs" path="res://addons/godot_state_charts/compound_state.gd" id="2_wcqb5"]
+[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="2_wcqb5"]
 [ext_resource type="Texture2D" uid="uid://0bgus5pyur11" path="res://bird/dead.png" id="2_wg0kq"]
 [ext_resource type="Script" uid="uid://chq875nu5uaq7" path="res://bird/bird.gd" id="3_7bjua"]
 [ext_resource type="Script" uid="uid://6jd84yc0467o" path="res://edge_wall.gd" id="3_jcxnq"]
 [ext_resource type="Script" uid="uid://c8sqv2v0o4dll" path="res://utils/visible_state.gd" id="3_l61ae"]
 [ext_resource type="Script" uid="uid://b6spl7fhyol55" path="res://pipes/pipe_manager.gd" id="3_thwxt"]
 [ext_resource type="Texture2D" uid="uid://dg3dbtyyd3wyx" path="res://pipes/tile_blue_top.png" id="4_1ka1o"]
-[ext_resource type="Script" uid="uid://d1gi3qtnd60n1" path="res://addons/godot_state_charts/transition.gd" id="4_vk71r"]
+[ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="4_vk71r"]
 [ext_resource type="Texture2D" uid="uid://csnwxwtgx5fdn" path="res://pipes/tile_blue_middle.png" id="5_kv0ol"]
 [ext_resource type="Script" uid="uid://bcnwns7bhft64" path="res://camera.gd" id="6_qecor"]
 [ext_resource type="Script" uid="uid://uhkhodnjcqoa" path="res://background/background_changer.gd" id="6_v8ctp"]
@@ -68,48 +68,48 @@ metadata/_custom_type_script = "uid://bqy4ctsahouot"
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_4lmeg"]
 polyphony = 4
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" unique_id=374853653]
 script = ExtResource("1_2li3r")
 
-[node name="MainState" type="Node" parent="."]
+[node name="MainState" type="Node" parent="." unique_id=1533154714]
 script = ExtResource("1_wc4pt")
 track_in_editor = true
 
-[node name="Root" type="Node" parent="MainState"]
+[node name="Root" type="Node" parent="MainState" unique_id=1147249051]
 script = ExtResource("2_wcqb5")
 initial_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="MainState/Root" node_paths=PackedStringArray("target_node")]
+[node name="Idle" type="Node" parent="MainState/Root" unique_id=43796972 node_paths=PackedStringArray("target_node")]
 script = ExtResource("3_l61ae")
 target_node = NodePath("../../../Camera/UI/Idle")
 
-[node name="GameStart" type="Node" parent="MainState/Root/Idle"]
+[node name="GameStart" type="Node" parent="MainState/Root/Idle" unique_id=847242750]
 script = ExtResource("4_vk71r")
 to = NodePath("../../Game")
 event = &"game_start"
 delay_in_seconds = "0.0"
 
-[node name="Game" type="Node" parent="MainState/Root" node_paths=PackedStringArray("target_node")]
+[node name="Game" type="Node" parent="MainState/Root" unique_id=1469035836 node_paths=PackedStringArray("target_node")]
 script = ExtResource("3_l61ae")
 target_node = NodePath("../../../Camera/UI/Game")
 
-[node name="GameOver" type="Node" parent="MainState/Root/Game"]
+[node name="GameOver" type="Node" parent="MainState/Root/Game" unique_id=1824913858]
 script = ExtResource("4_vk71r")
 to = NodePath("../../GameOver")
 event = &"game_over"
 delay_in_seconds = "0.0"
 
-[node name="GameOver" type="Node" parent="MainState/Root" node_paths=PackedStringArray("target_node")]
+[node name="GameOver" type="Node" parent="MainState/Root" unique_id=1583597055 node_paths=PackedStringArray("target_node")]
 script = ExtResource("3_l61ae")
 target_node = NodePath("../../../Camera/UI/GameOver")
 
-[node name="Restart" type="Node" parent="MainState/Root/GameOver"]
+[node name="Restart" type="Node" parent="MainState/Root/GameOver" unique_id=1419369678]
 script = ExtResource("4_vk71r")
 to = NodePath("../../Idle")
 event = &"game_restart"
 delay_in_seconds = "0.0"
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="." node_paths=PackedStringArray("_sprite_background", "_sprite_foreground")]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1149975329 node_paths=PackedStringArray("_sprite_background", "_sprite_foreground")]
 scroll_base_scale = Vector2(0.5, 0.5)
 script = ExtResource("6_v8ctp")
 _group_background = ExtResource("7_4it5b")
@@ -117,24 +117,24 @@ _group_foreground = ExtResource("8_pqtrw")
 _sprite_background = NodePath("Background/Sprite")
 _sprite_foreground = NodePath("Foreground/Sprite")
 
-[node name="Background" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Background" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1632052482]
 motion_mirroring = Vector2(640, 2.08165e-12)
 
-[node name="Sprite" type="Sprite2D" parent="ParallaxBackground/Background"]
+[node name="Sprite" type="Sprite2D" parent="ParallaxBackground/Background" unique_id=730438769]
 texture = ExtResource("1_7q5h0")
 centered = false
 
-[node name="Foreground" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Foreground" type="ParallaxLayer" parent="ParallaxBackground" unique_id=2037830113]
 motion_mirroring = Vector2(640, 2.08165e-12)
 
-[node name="Sprite" type="Sprite2D" parent="ParallaxBackground/Foreground"]
+[node name="Sprite" type="Sprite2D" parent="ParallaxBackground/Foreground" unique_id=1288456080]
 texture = ExtResource("2_pj211")
 centered = false
 
-[node name="EdgeWall" type="StaticBody2D" parent="."]
+[node name="EdgeWall" type="StaticBody2D" parent="." unique_id=1702671655]
 script = ExtResource("3_jcxnq")
 
-[node name="Pipes" type="Node2D" parent="."]
+[node name="Pipes" type="Node2D" parent="." unique_id=522183434]
 script = ExtResource("3_thwxt")
 _texture_pairs = {
 ExtResource("4_1ka1o"): ExtResource("5_kv0ol"),
@@ -143,7 +143,7 @@ ExtResource("17_wgm7g"): ExtResource("18_ntc2s"),
 ExtResource("19_xlohi"): ExtResource("20_q3mon")
 }
 
-[node name="Bird" type="RigidBody2D" parent="." node_paths=PackedStringArray("_pipe_manager", "_visible_on_screen_notifier", "_sprite_normal", "_sprite_dead", "_audio_score_up", "_audio_game_over")]
+[node name="Bird" type="RigidBody2D" parent="." unique_id=348290183 node_paths=PackedStringArray("_pipe_manager", "_visible_on_screen_notifier", "_sprite_normal", "_sprite_dead", "_audio_score_up", "_audio_game_over")]
 can_sleep = false
 lock_rotation = true
 contact_monitor = true
@@ -157,50 +157,50 @@ _audio_score_up = NodePath("AudioScoreUp")
 _audio_game_over = NodePath("AudioGameOver")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape" type="CollisionShape2D" parent="Bird"]
+[node name="CollisionShape" type="CollisionShape2D" parent="Bird" unique_id=1716810073]
 shape = SubResource("CircleShape2D_ce2ut")
 
-[node name="VisibleOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="Bird"]
+[node name="VisibleOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="Bird" unique_id=501524922]
 scale = Vector2(2.7, 2.7)
 
-[node name="SpriteNormal" type="Sprite2D" parent="Bird"]
+[node name="SpriteNormal" type="Sprite2D" parent="Bird" unique_id=710153200]
 rotation = -1.5708
 texture = ExtResource("1_yc6s5")
 offset = Vector2(0, -4.5)
 
-[node name="SpriteDead" type="Sprite2D" parent="Bird"]
+[node name="SpriteDead" type="Sprite2D" parent="Bird" unique_id=1794272133]
 visible = false
 rotation = -1.5708
 texture = ExtResource("2_wg0kq")
 offset = Vector2(-0.5, -0.5)
 flip_v = true
 
-[node name="AudioScoreUp" type="AudioStreamPlayer" parent="Bird"]
+[node name="AudioScoreUp" type="AudioStreamPlayer" parent="Bird" unique_id=112279588]
 stream = SubResource("AudioStreamRandomizer_b1qrp")
 
-[node name="AudioGameOver" type="AudioStreamPlayer" parent="Bird"]
+[node name="AudioGameOver" type="AudioStreamPlayer" parent="Bird" unique_id=1936079477]
 stream = SubResource("AudioStreamRandomizer_come4")
 volume_db = -5.0
 
-[node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("_bird")]
+[node name="Camera" type="Camera2D" parent="." unique_id=904482319 node_paths=PackedStringArray("_bird")]
 offset = Vector2(50, 2.08165e-12)
 editor_draw_limits = true
 script = ExtResource("6_qecor")
 _bird = NodePath("../Bird")
 
-[node name="UI" type="CanvasLayer" parent="Camera"]
+[node name="UI" type="CanvasLayer" parent="Camera" unique_id=416173132]
 
-[node name="ButtonAudioPlayer" type="AudioStreamPlayer" parent="Camera/UI"]
+[node name="ButtonAudioPlayer" type="AudioStreamPlayer" parent="Camera/UI" unique_id=114851827]
 stream = SubResource("AudioStreamPolyphonic_4lmeg")
 autoplay = true
 script = ExtResource("37_h8e4i")
 
-[node name="Idle" parent="Camera/UI" instance=ExtResource("38_h8e4i")]
+[node name="Idle" parent="Camera/UI" unique_id=1799219987 instance=ExtResource("38_h8e4i")]
 
-[node name="Game" parent="Camera/UI" instance=ExtResource("39_4lmeg")]
+[node name="Game" parent="Camera/UI" unique_id=389154357 instance=ExtResource("39_4lmeg")]
 visible = false
 
-[node name="GameOver" parent="Camera/UI" instance=ExtResource("40_0cp0l")]
+[node name="GameOver" parent="Camera/UI" unique_id=79337004 instance=ExtResource("40_0cp0l")]
 visible = false
 
 [connection signal="state_entered" from="MainState/Root/Idle" to="." method="_idle_state_entered"]

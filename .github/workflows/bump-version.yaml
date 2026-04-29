@@ -22,7 +22,7 @@ jobs:
 
       - name: Set up Godot
         run: |
-          readonly VERSION=4.5
+          readonly VERSION=4.6.2
           release_url="https://github.com/godotengine/godot-builds/releases/download/${VERSION}-stable"
 
           bin_name="Godot_v${VERSION}-stable_linux.x86_64"
