@@ -21,9 +21,8 @@ func _ready() -> void:
 
 	_update_visibility()
 
-@warning_ignore("unused_parameter")
-func _state_enter(expect_transition: bool = false) -> void:
-	super()
+func _state_enter(transition_target: StateChartState) -> void:
+	super(transition_target)
 	_update_visibility()
 
 func _state_exit() -> void:

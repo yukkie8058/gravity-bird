@@ -2,7 +2,7 @@ extends "res://addons/gd-plug/plug.gd"
 
 func _plugging() -> void:
 	plug("derkork/godot-statecharts", {
-		"tag": "v0.17.0",
+		"tag": "v0.22.4",
 		"include": ["addons/godot_state_charts"],
 		"exclude": ["addons/godot_state_charts/csharp"],
 	})
