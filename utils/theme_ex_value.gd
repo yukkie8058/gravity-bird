@@ -13,14 +13,14 @@ func _init() -> void:
 
 func _set_value(new_value: Resource) -> void:
 	if value == new_value: return
-	
+
 	if value != null:
 		value.changed.disconnect(emit_changed)
 	if new_value != null:
 		new_value.changed.connect(emit_changed)
-	
+
 	value = new_value
-	
+
 	emit_changed()
 
 func _get_width() -> int: return 0

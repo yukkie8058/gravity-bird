@@ -13,12 +13,12 @@ func _init(path: String) -> void:
 func set_value(key: String, value: Variant) -> void:
 	var dict := _file_get_as_dict()
 	assert(dict.set(key, value))
-	
+
 	_file.seek(0)
 	assert(_file.store_var(dict), error_string(_file.get_error()))
 	var err := _file.resize(_file.get_position())
 	assert(err == OK, error_string(err))
-	
+
 	_file.flush()
 
 func get_value(key: String) -> Variant:

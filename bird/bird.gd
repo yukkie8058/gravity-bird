@@ -3,7 +3,7 @@ extends RigidBody2D
 
 enum GravityDirection {
 	NONE = 0,
-	UP = -1, 
+	UP = -1,
 	DOWN = 1
 }
 
@@ -74,7 +74,7 @@ func _body_entered(body: Node) -> void:
 		set_deferred("freeze", true)
 		_audio_game_over.play()
 		await get_tree().create_timer(0.5).timeout
-		
+
 		dead = true
 		rotation = -(TAU / 4)
 		var gravity := sqrt(ProjectSettings.get_setting_with_override("physics/2d/default_gravity"))
@@ -83,7 +83,7 @@ func _body_entered(body: Node) -> void:
 			await get_tree().process_frame
 			global_position += Vector2(0, vel_y)
 			vel_y += gravity * get_process_delta_time()
-		
+
 		MainState.chart().send_event("game_over")
 
 func _update_next_pipe() -> void:
