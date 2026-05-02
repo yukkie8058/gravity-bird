@@ -15,11 +15,18 @@ func _enter_tree() -> void:
 	_instruction.text = "" if mobile else "PRESS SPACE\nOR\n"
 	_instruction.text += "%s ANYWHERE" % ("TOUCH" if mobile else "CLICK")
 
+	_mute_changed()
+
 func _sound_toggle_pressed() -> void:
-	var bus := 0
-	var mute := not AudioServer.is_bus_mute(bus)
-	AudioServer.set_bus_mute(bus, mute)
-	_sound_toggle.theme_type_variation = "SoundToggle%s" % ("Off" if mute else "On")
+	var save := Save.get_singleton()
+	save.audio_mute = not save.audio_mute
+	_mute_changed()
 
 func _instruction_timer_timeout() -> void:
 	_instruction.visible = not _instruction.visible
+
+func _mute_changed() -> void:
+	var save := Save.get_singleton()
+	var bus := 0
+	AudioServer.set_bus_mute(bus, save.audio_mute)
+	_sound_toggle.theme_type_variation = "SoundToggle%s" % ("Off" if save.audio_mute else "On")
