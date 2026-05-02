@@ -16,6 +16,9 @@ func _init() -> void:
 
 var high_score: int:
 	set(v): assert(v >= 0, error_string(ERR_PARAMETER_RANGE_ERROR)); set_value("high_score", v)
-	get: return get_value("high_score") as int if has_value("high_score") else 0
+	get: return get_value("high_score") if has_value("high_score") else 0
+var audio_mute: bool:
+	set(v): set_value("audio_mute", v)
+	get: return get_value("audio_mute") if has_value("audio_mute") else false
 
 #endregion
