@@ -6,4 +6,6 @@
 addons/*
 !addons/gd-plug/
 
-export/
+exports/**
+!exports/*
+!exports/*/.gitkeep
