@@ -22,11 +22,13 @@ func _shown() -> void:
 		_tweet.tweet_text = "Gravity Birdで1点も取れませんでした...😭\n"
 	_tweet.tweet_text += "https://godotplayer.com/games/gravity_bird"
 
-	_high_score_normal.visible = not Main.node().is_high_score()
+	var enable_high_score := OS.is_userfs_persistent()
+
+	_high_score_normal.visible = enable_high_score and not Main.node().is_high_score()
 	_high_score_normal.text = "HIGH SCORE: %d" % Save.get_singleton().high_score
 
-	_high_score_rainbow.visible = Main.node().is_high_score()
-	if Main.node().is_high_score():
+	_high_score_rainbow.visible = enable_high_score and Main.node().is_high_score()
+	if enable_high_score and Main.node().is_high_score():
 		_high_score_audio.play()
 
 		var tween := create_tween()
