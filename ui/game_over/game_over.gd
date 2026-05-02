@@ -20,7 +20,10 @@ func _shown() -> void:
 		_tweet.tweet_text = "Gravity Birdで%d点を獲得！\n" % Main.node().score
 	else:
 		_tweet.tweet_text = "Gravity Birdで1点も取れませんでした...😭\n"
-	_tweet.tweet_text += "https://godotplayer.com/games/gravity_bird"
+	if OS.has_feature("godotplayer"):
+		_tweet.tweet_text += "https://godotplayer.com/games/gravity_bird"
+	elif OS.has_feature("unityroom"):
+		_tweet.tweet_text += "https://unityroom.com/games/gravity-bird"
 
 	var enable_high_score := OS.is_userfs_persistent()
 
