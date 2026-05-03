@@ -77,6 +77,7 @@ Button/styles/normal = SubResource("StyleBoxTexture_5h50w")
 Button/styles/pressed = SubResource("StyleBoxTexture_437sy")
 FlatButton/constants/icon_max_width = 40
 FlatButton/styles/hover = SubResource("StyleBoxFlat_cefca")
+FlatButton/styles/hover_pressed = SubResource("StyleBoxFlat_cefca")
 FlatButton/styles/normal = SubResource("StyleBoxFlat_ed8xq")
 FlatButton/styles/pressed = SubResource("StyleBoxFlat_u7cj8")
 HeaderLarge/constants/outline_size = 7

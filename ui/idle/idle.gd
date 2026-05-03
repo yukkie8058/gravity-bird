@@ -1,7 +1,7 @@
 extends MarginContainer
 
 @export_group("Component")
-@export var _sound_toggle: Button
+@export var _audio_mute: CheckButton
 @export var _version: LinkButton
 @export var _instruction: Label
 
@@ -15,18 +15,12 @@ func _enter_tree() -> void:
 	_instruction.text = "" if mobile else "PRESS SPACE\nOR\n"
 	_instruction.text += "%s ANYWHERE" % ("TOUCH" if mobile else "CLICK")
 
-	_mute_changed()
+	_audio_mute.button_pressed = Save.get_singleton().audio_mute
 
-func _sound_toggle_pressed() -> void:
-	var save := Save.get_singleton()
-	save.audio_mute = not save.audio_mute
-	_mute_changed()
+func _audio_mute_toggled(toggled_on: bool) -> void:
+	var bus := 0
+	AudioServer.set_bus_mute(bus, toggled_on)
+	Save.get_singleton().audio_mute = toggled_on
 
 func _instruction_timer_timeout() -> void:
 	_instruction.visible = not _instruction.visible
-
-func _mute_changed() -> void:
-	var save := Save.get_singleton()
-	var bus := 0
-	AudioServer.set_bus_mute(bus, save.audio_mute)
-	_sound_toggle.theme_type_variation = "SoundToggle%s" % ("Off" if save.audio_mute else "On")
