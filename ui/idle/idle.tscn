@@ -51,6 +51,7 @@ horizontal_alignment = 1
 editor_description = "子のLabelが非表示になる時にこのノードがレイアウトを保持する。"
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="VBox/Instruction" unique_id=185617511]
 layout_mode = 1
