@@ -1,23 +1,17 @@
 [gd_scene format=3 uid="uid://c4c3gnrpoqee"]
 
 [ext_resource type="Script" uid="uid://doph4syk5rtqq" path="res://ui/idle/idle.gd" id="1_a0mke"]
-[ext_resource type="Texture2D" uid="uid://jk7wsag1g821" path="res://ui/idle/sound_toggle/off.svg" id="2_3mwwa"]
-[ext_resource type="Texture2D" uid="uid://bf7flvshv852u" path="res://ui/idle/sound_toggle/on.svg" id="3_2fs42"]
+[ext_resource type="Texture2D" uid="uid://jk7wsag1g821" path="res://ui/idle/audio_toggle/off.svg" id="2_3mwwa"]
+[ext_resource type="Texture2D" uid="uid://bf7flvshv852u" path="res://ui/idle/audio_toggle/on.svg" id="3_2fs42"]
 
-[sub_resource type="Theme" id="Theme_7itil"]
-SoundToggleOff/base_type = &"FlatButton"
-SoundToggleOff/icons/icon = ExtResource("2_3mwwa")
-SoundToggleOn/base_type = &"FlatButton"
-SoundToggleOn/icons/icon = ExtResource("3_2fs42")
-
-[node name="Idle" type="MarginContainer" unique_id=1083647321 node_paths=PackedStringArray("_sound_toggle", "_version", "_instruction")]
+[node name="Idle" type="MarginContainer" unique_id=1083647321 node_paths=PackedStringArray("_audio_mute", "_version", "_instruction")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_a0mke")
-_sound_toggle = NodePath("VBox/Heading/SoundToggle")
+_audio_mute = NodePath("VBox/Heading/AudioMute")
 _version = NodePath("VBox/Heading/Version")
 _instruction = NodePath("VBox/Instruction/Label")
 
@@ -27,10 +21,11 @@ layout_mode = 2
 [node name="Heading" type="HBoxContainer" parent="VBox" unique_id=912676900]
 layout_mode = 2
 
-[node name="SoundToggle" type="Button" parent="VBox/Heading" unique_id=1727622364]
+[node name="AudioMute" type="CheckButton" parent="VBox/Heading" unique_id=708690154]
 layout_mode = 2
-theme = SubResource("Theme_7itil")
-theme_type_variation = &"SoundToggleOn"
+theme_type_variation = &"FlatButton"
+theme_override_icons/checked = ExtResource("2_3mwwa")
+theme_override_icons/unchecked = ExtResource("3_2fs42")
 
 [node name="Version" type="LinkButton" parent="VBox/Heading" unique_id=1160118191]
 layout_mode = 2
@@ -72,5 +67,5 @@ horizontal_alignment = 1
 [node name="Timer" type="Timer" parent="VBox/Instruction/Label" unique_id=1286304256]
 autostart = true
 
-[connection signal="pressed" from="VBox/Heading/SoundToggle" to="." method="_sound_toggle_pressed"]
+[connection signal="toggled" from="VBox/Heading/AudioMute" to="." method="_audio_mute_toggled"]
 [connection signal="timeout" from="VBox/Instruction/Label/Timer" to="." method="_instruction_timer_timeout"]
