@@ -26,12 +26,14 @@ func _shown() -> void:
 		_tweet.tweet_text += "https://unityroom.com/games/gravity-bird"
 
 	var enable_high_score := OS.is_userfs_persistent()
+	var is_high_score := Main.node().is_high_score()
+	var high_score := Save.get_singleton().high_score
 
-	_high_score_normal.visible = enable_high_score and not Main.node().is_high_score()
-	_high_score_normal.text = "HIGH SCORE: %d" % Save.get_singleton().high_score
+	_high_score_normal.visible = enable_high_score and not is_high_score and high_score > 0
+	_high_score_normal.text = "HIGH SCORE: %d" % high_score
 
-	_high_score_rainbow.visible = enable_high_score and Main.node().is_high_score()
-	if enable_high_score and Main.node().is_high_score():
+	_high_score_rainbow.visible = enable_high_score and is_high_score
+	if _high_score_rainbow.visible:
 		_high_score_audio.play()
 
 		var tween := create_tween()
