@@ -9,7 +9,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0hcq4"]
 shader = ExtResource("2_6lpyu")
 
-[node name="GameOver" type="MarginContainer" unique_id=382319820 node_paths=PackedStringArray("_score", "_tweet", "_high_score_normal", "_high_score_rainbow", "_high_score_audio")]
+[node name="GameOver" type="MarginContainer" unique_id=382319820 node_paths=PackedStringArray("_score", "_restart", "_tweet", "_high_score_normal", "_high_score_rainbow", "_high_score_audio")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -17,6 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_j1fe5")
 _score = NodePath("VBox/Heading/Score")
+_restart = NodePath("VBox/Buttons/Restart")
 _tweet = NodePath("VBox/Buttons/Tweet")
 _high_score_normal = NodePath("VBox/Heading/HighScoreNormal")
 _high_score_rainbow = NodePath("VBox/Heading/HighScoreRainbow")

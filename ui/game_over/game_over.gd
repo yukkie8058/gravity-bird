@@ -2,6 +2,7 @@ extends MarginContainer
 
 @export_group("Component")
 @export var _score: Label
+@export var _restart: Button
 @export var _tweet: TweetButton
 @export_subgroup("High Score", "_high_score")
 @export var _high_score_normal: Label
@@ -24,6 +25,8 @@ func _shown() -> void:
 		_tweet.tweet_text += "https://godotplayer.com/games/gravity_bird"
 	elif OS.has_feature("unityroom"):
 		_tweet.tweet_text += "https://unityroom.com/games/gravity-bird"
+	else:
+		_tweet.tweet_text += "https://github.com/yukkie8058/gravity-bird"
 
 	var enable_high_score := OS.is_userfs_persistent()
 	var is_high_score := Main.node().is_high_score()
@@ -43,6 +46,8 @@ func _shown() -> void:
 			tween.tween_callback(_high_score_rainbow.set_indexed.bind("modulate:a", float(i % 2)))\
 				.set_delay(HIGH_SCORE_BLINK_INTERVAL)
 		tween.tween_callback(_high_score_rainbow.set_indexed.bind("modulate:a", 1.0))
+
+	_restart.grab_focus(true)
 
 func _restart_pressed() -> void:
 	MainState.chart().send_event("game_restart")
